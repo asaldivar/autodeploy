@@ -9,39 +9,28 @@ script:
   - docker run asaldivar/autodeploy npm run test
 
 deploy:
-  provider: elasticbeanstalk
-  region: "us-west-2"
-  app: 'autodeploy'
-  env: 'Autodeploy-staging-env'
-  bucket_name: "elasticbeanstalk-us-west-2-002769441755"
-  bucket_path: "autodeploy"
-  on:
-    branch: dev
-  access_key_id:
-    secure: $AWS_ACCESS_KEY_ID
-  secret_access_key:
-    secure: $AWS_SECRET_ACCESS_KEY
+  - provider: elasticbeanstalk
+    region: 'us-west-2'
+    app: 'autodeploy'
+    env: 'Autodeploy-staging-env'
+    bucket_name: 'elasticbeanstalk-us-west-2-002769441755'
+    bucket_path: 'autodeploy'
+    on:
+      branch: dev
+    access_key_id:
+      secure: $AWS_ACCESS_KEY_ID
+    secret_access_key:
+      secure: $AWS_SECRET_ACCESS_KEY
 
-  provider: elasticbeanstalk
-  region: 'us-west-2'
-  app: 'autodeploy'
-  env: 'Autodeploy-env'
-  bucket_name: 'elasticbeanstalk-us-west-2-002769441755'
-  bucket_path: 'autodeploy'
-  on:
-    branch: master
-  access_key_id:
-    secure: $AWS_ACCESS_KEY_ID
-  secret_access_key:
-    secure: $AWS_SECRET_ACCESS_KEY
-
-
-
-
-
-
-
-
-
-
-
+  - provider: elasticbeanstalk
+    region: 'us-west-2'
+    app: 'autodeploy'
+    env: 'Autodeploy-env'
+    bucket_name: 'elasticbeanstalk-us-west-2-002769441755'
+    bucket_path: 'autodeploy'
+    on:
+      branch: master
+    access_key_id:
+      secure: $AWS_ACCESS_KEY_ID
+    secret_access_key:
+      secure: $AWS_SECRET_ACCESS_KEY
