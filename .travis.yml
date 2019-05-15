@@ -6,4 +6,4 @@ before_install:
   - docker build -t asaldivar/autodeploy -f Dockerfile.dev .
 
 script:
-  - docker run asaldivar/autodeploy npm run test
+  - docker run asaldivar/autodeploy npm run test -- --coverage
